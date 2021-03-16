@@ -1,11 +1,11 @@
 package com.company;
 
-class Repeater extends CreatorString {
+// This class contains methods that implement reiteration for the class "CreatorString"
+class Repeater {
 
-    private String repeatedString;
-
+    // This method receive the string and amount of reiterations then return the repeated string
     public String repeatString(String letters, int amount) {
-
+        String repeatedString;
         StringBuilder builder = new StringBuilder();
 
         for (int i = 0; i < amount; i++) {
@@ -16,24 +16,25 @@ class Repeater extends CreatorString {
         return repeatedString;
     }
 
+    // This method receive the whole string and then return the part of string in brackets
+    // This method is used to get a part of string in brackets
+    // It's gets whole string and then looking for the opening bracket "[",
+    // afterwards it use method getClosingBracket to get matching closing bracket "]"
     public String getBracketsLetters(String input) {
-
-
 
         // Looking for an index of first bracket
         int indexOpeningBracket = input.indexOf("[");
-
         // Looking for an index of second bracket
         int getClosingBracket = getClosingBracket(input, indexOpeningBracket);
-
         // Pulling out a letters
-        String letters = input.substring(indexOpeningBracket+1,getClosingBracket);
 
-        return letters;
+        return input.substring(indexOpeningBracket+1,getClosingBracket);
     }
+
+    // This method receive the whole string and opening bracket "[" then return the matching closing bracket "]"
+    // This method is used to find the matching closing bracket "]"
     public int getClosingBracket (String input, int indexOpeningBracket) {
 
-        // Looking for an index of second bracket
         int counter = 1;
         int indexClosingBracket = indexOpeningBracket;
         while (counter > 0) {

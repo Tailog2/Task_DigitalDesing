@@ -1,8 +1,9 @@
 package com.company;
 
-// Processing line without
-public class ProcessorLine {
 
+public class ProcessorLine{
+
+    // This method receive a string with original input data and return the unpacked string
     public String processLine(String input) {
         boolean condition = true;
         String line = input;
@@ -17,7 +18,7 @@ public class ProcessorLine {
 
             if (Character.isDigit(line.charAt(i))) {
 
-                int j = repeater.getClosingBracket(line, line.indexOf("["));;
+                int j = repeater.getClosingBracket(line, line.indexOf("["));
                 newPartString = creator.createString(line.substring(i,j+1));
                 newLine.replace(i, j+1, newPartString);
                 line = newLine.toString();
@@ -30,10 +31,6 @@ public class ProcessorLine {
             }
         }
         return line;
-    }
-
-    public static CreateStr makeString() {
-        return new CreatorString();
     }
 }
 

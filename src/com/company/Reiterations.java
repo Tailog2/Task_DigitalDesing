@@ -1,7 +1,7 @@
 package com.company;
 
 
-public class Reiterations extends CreatorString{
+public class Reiterations {
     private char amountReiterations;
     private char symbol;
 
