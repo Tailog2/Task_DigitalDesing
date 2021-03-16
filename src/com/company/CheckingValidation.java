@@ -11,7 +11,7 @@ private int length;
 
         length = input.length();
         // Checking first characters
-        if (!(Character.isLetter(input.charAt(0)) || Character.isDigit(input.charAt(0))))
+        if (!(Character.UnicodeBlock.of(input.charAt(0)).equals(Character.UnicodeBlock.BASIC_LATIN) || Character.isDigit(input.charAt(0))))
             return false;
         // Checking last characters
         if ((input.charAt(length - 1) == '[' || Character.isDigit(input.charAt(length - 1))))
@@ -28,14 +28,13 @@ private int length;
                 continue;
             else if (Character.isDigit(sCurrent) && (sFollowing == '[' || Character.isDigit(sFollowing)))
                 continue;
-            else if (Character.isLetter(sCurrent))
+            else if (Character.UnicodeBlock.of(sCurrent).equals(Character.UnicodeBlock.BASIC_LATIN))
                 continue;
             else
                 return false;
         }
     return true;
     }
-
 
     // Checking if there is a left bracket matching the right bracket, checking from lift to right
     public boolean checkBrackets_R(String input,int indexOpeningBracket) {
@@ -52,7 +51,6 @@ private int length;
         }
         return counter <= 0;
     }
-
 
     // Checking if there is a right bracket matching the left bracket, checking from right to left
     public boolean checkBrackets_L(String input,int indexClosingBracket) {

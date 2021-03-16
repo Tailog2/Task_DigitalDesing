@@ -7,7 +7,7 @@ static ProcessorLine processor = new ProcessorLine();
 
     public static void main(String[] args) {
 
-        String input = "3[xyz]4[xy]z";
+        String input = "2[3[x]y]";
         if (validation.checkValidation(input)){
             String output = processor.processLine(input);
             System.out.println(output);
